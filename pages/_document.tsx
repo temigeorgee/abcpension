@@ -37,7 +37,7 @@ class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="http://cdn.bootcss.com/antd/2.9.3/antd.css"
-          />
+          ></link>
         </Head>
         <body>
           <Main />

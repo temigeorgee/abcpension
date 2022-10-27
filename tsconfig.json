@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -25,7 +25,9 @@
     "src/components/UI/Products/Flex.tsx",
     "src/components/UI/Products/Earn/Earnaswaste.tsx",
     "src/components/UI/Products/Pay/Payaswaste.tsx",
-    "src/components/UI/Products/Earn/Card.jsx"
+    "src/components/UI/Products/Earn/Card.jsx",
+    "src/components/Modal/modal.jsx",
+    "pages/userdata/index.jsx"
   ],
   "exclude": ["node_modules"]
 }

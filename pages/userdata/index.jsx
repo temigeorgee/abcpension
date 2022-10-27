@@ -3,7 +3,6 @@ import { Tag, Space } from "antd";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../src/context/userContext";
 import { Button, Container } from "../../src/components";
-import type { ColumnsType } from "antd/es/table";
 import { truncate } from "../../src/utils/utils";
 import { Modal } from "../../src/components/Modal/modal";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
@@ -14,17 +13,18 @@ const AllPersonData = () => {
   const [rowInfo, setRowInfo] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const { userData } = useContext(ThemeContext);
+  const { employeeData } = useContext(EmployeeContext);
   const router = useRouter();
 
   const data = [
     {
       title: "Employees",
-      data: userData,
+      data: employeeData,
       columns: [
         {
-          title: "Address",
-          dataIndex: "address",
-          key: "address",
+          title: "Firstnam",
+          dataIndex: "firstname",
+          key: "firstname",
         },
         {
           title: "Phone Number",
@@ -32,9 +32,9 @@ const AllPersonData = () => {
           key: "phone",
         },
         {
-          title: "RC Number",
-          dataIndex: "rcnumber",
-          key: "rcnumber",
+          title: "Lastname",
+          dataIndex: "lastname",
+          key: "lastname",
         },
         {
           title: "Email",
@@ -116,12 +116,12 @@ const AllPersonData = () => {
           User Information
         </header>
         <div className="flex item-center space-x-3 ml-6 cursor-pointer">
-          <a href="/">
-            <BsArrowLeftCircleFill
-              // onClick={() => router.push("/")}
-              className="w-8 h-8"
-            />
-          </a>
+          {/* <Link href="/"> */}
+          <BsArrowLeftCircleFill
+            onClick={() => router.push("/")}
+            className="w-8 h-8"
+          />
+          {/* </Link> */}
           <p className="text-lg font-semibold">Go back</p>
         </div>
         <Container>

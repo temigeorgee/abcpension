@@ -92,7 +92,7 @@ export const Modal: FC<props> = ({ showModal, setShowModal, userData }) => {
   {
     /* @ts-ignore */
   }
-  const modalRef = useRef();
+  const modalRef = useRef(null);
   const animation = useSpring({
     config: {
       duration: 250,
@@ -100,8 +100,12 @@ export const Modal: FC<props> = ({ showModal, setShowModal, userData }) => {
     opacity: showModal ? 1 : 0,
     transform: showModal ? `translateY(0%)` : `translateY(-100%)`,
   });
-
-  const closeModal = (e) => {
+  {
+    /* @ts-ignore */
+  }
+  const closeModal = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     if (modalRef.current === e.target) {
       setShowModal(false);
     }
@@ -124,61 +128,66 @@ export const Modal: FC<props> = ({ showModal, setShowModal, userData }) => {
   return (
     <>
       {showModal ? (
-        <Background onClick={closeModal} ref={modalRef}>
-          <animated.div style={animation}>
-            <ModalWrapper showModal={showModal}>
-              <ModalTitleContainer>
-                {/* <FaPlusCircle size={28} /> */}
-                <ModalTitle>Details</ModalTitle>
-              </ModalTitleContainer>
-              <ModalContent>
-                <div className="grid grid-cols-2 space-x-6 px-6">
-                  <InfoItem>
-                    <InfoTitle>Id:</InfoTitle>
-                    <InfoValue>{userData.id ?? ""}</InfoValue>
-                  </InfoItem>
-                  <InfoItem>
-                    <InfoTitle>Fullname:</InfoTitle>
-                    <InfoValue>{userData.fullname ?? "-"}</InfoValue>
-                  </InfoItem>
-                </div>
-                <div className="grid grid-cols-2 space-x-6 px-6 ">
-                  <InfoItem>
-                    <InfoTitle>Email:</InfoTitle>
-                    <InfoValue>
-                      {userData.email == " " ? "-" : userData.email}
-                    </InfoValue>
-                  </InfoItem>
-                  <InfoItem>
-                    <InfoTitle>Tin:</InfoTitle>
-                    <InfoValue>
-                      {userData.tin == "" ? "-" : userData.tin}
-                    </InfoValue>
-                  </InfoItem>
-                </div>
-                <div className="grid grid-cols-2 space-x-6 px-6">
-                  <InfoItem>
-                    <InfoTitle>Phone:</InfoTitle>
-                    <InfoValue>
-                      {userData.phone == " " ? "-" : userData.phone}
-                    </InfoValue>
-                  </InfoItem>
+        <>
+          {/* @ts-ignore */}
+          <Background onClick={closeModal} ref={modalRef}>
+            <animated.div style={animation}>
+              {/* @ts-ignore */}
+              <ModalWrapper showModal={showModal}>
+                <ModalTitleContainer>
+                  {/* <FaPlusCircle size={28} /> */}
+                  <ModalTitle>Details</ModalTitle>
+                </ModalTitleContainer>
+                <ModalContent>
+                  <div className="grid grid-cols-2 space-x-6 px-6">
+                    <InfoItem>
+                      <InfoTitle>Id:</InfoTitle>
+                      <InfoValue>{userData.id ?? ""}</InfoValue>
+                    </InfoItem>
+                    <InfoItem>
+                      <InfoTitle>Fullname:</InfoTitle>
+                      <InfoValue>{userData.fullname ?? "-"}</InfoValue>
+                    </InfoItem>
+                  </div>
+                  <div className="grid grid-cols-2 space-x-6 px-6 ">
+                    <InfoItem>
+                      <InfoTitle>Email:</InfoTitle>
+                      <InfoValue>
+                        {userData.email == " " ? "-" : userData.email}
+                      </InfoValue>
+                    </InfoItem>
+                    <InfoItem>
+                      <InfoTitle>Tin:</InfoTitle>
+                      <InfoValue>
+                        {userData.tin == "" ? "-" : userData.tin}
+                      </InfoValue>
+                    </InfoItem>
+                  </div>
+                  <div className="grid grid-cols-2 space-x-6 px-6">
+                    <InfoItem>
+                      <InfoTitle>Phone:</InfoTitle>
+                      <InfoValue>
+                        {userData.phone == " " ? "-" : userData.phone}
+                      </InfoValue>
+                    </InfoItem>
 
-                  <InfoItem>
-                    <InfoTitle>RC Number:</InfoTitle>
-                    <InfoValue>
-                      {userData.rcnumber == "" ? "-" : userData.rcnumber}
-                    </InfoValue>
-                  </InfoItem>
-                </div>
-              </ModalContent>
-              <CloseModalButton onClick={() => setShowModal((prev) => !prev)}>
-                {" "}
-                X{" "}
-              </CloseModalButton>
-            </ModalWrapper>
-          </animated.div>
-        </Background>
+                    <InfoItem>
+                      <InfoTitle>RC Number:</InfoTitle>
+                      <InfoValue>
+                        {userData.rcnumber == "" ? "-" : userData.rcnumber}
+                      </InfoValue>
+                    </InfoItem>
+                  </div>
+                </ModalContent>
+                {/* @ts-ignore */}
+                <CloseModalButton onClick={() => setShowModal((prev) => !prev)}>
+                  {" "}
+                  X{" "}
+                </CloseModalButton>
+              </ModalWrapper>
+            </animated.div>
+          </Background>
+        </>
       ) : null}
     </>
   );

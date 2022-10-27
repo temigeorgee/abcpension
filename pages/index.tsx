@@ -83,9 +83,11 @@ const Home: NextPage = () => {
               </h2>
               <div className="border-2 w-10 border-white inline-block mb-2"></div>
               <p className="mb-10"></p>
-              <a href={"/userdata"}>
-                <Button>View All Employers/Employees</Button>
-              </a>
+              {/* <Link href={}> */}
+              <Button onClick={() => router.push("/userdata")}>
+                View All Employers/Employees
+              </Button>
+              {/* </Link> */}
             </ImageContainer>
           </main>
         </Container>
