@@ -1,26 +1,65 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import "~antd/dist/antd.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+/* @import "antd/dist/antd.css"; */
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
+
+  html,
   body {
-    color: white;
-    background: black;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
   }
+}
+
+@layer utilities {
+  .animate-3s {
+    animation-duration: 3s;
+  }
+}
+.swiper-pagination-bullet-active {
+  background-color: #005700 !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #22c55e !important;
+  text-shadow: 0 0 0.25px currentcolor;
+}
+::selection {
+  color: #fff;
+  background: #22c55e;
+}
+.ant-tabs-tab-btn:focus,
+.ant-tabs-tab-remove:focus,
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-remove:active {
+  color: #22c55e;
+}
+.ant-tabs-ink-bar {
+  position: absolute;
+  background: #22c55e !important;
+  pointer-events: none;
+}
+.ant-tabs-tab:hover {
+  color: #22c55e !important;
+}
+
+.ant-table-placeholder {
+  display: none;
 }
