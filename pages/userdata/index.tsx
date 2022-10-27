@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import TabDatable from "../../src/components/DataTable/DataTable";
 import { Tag, Space } from "antd";
 import { useContext, useState } from "react";
@@ -8,12 +9,15 @@ import { Modal } from "../../src/components/Modal/modal";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { EmployeeContext } from "../../src/context/Employee";
 
-const AllPersonData = () => {
+const AllPersonData: NextPage = () => {
   const [rowInfo, setRowInfo] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const { userData } = useContext(ThemeContext);
-  const { employeeData } = useContext(EmployeeContext);
+
+  const { userData }: any = useContext(ThemeContext);
+
+  const { employeeData }: any = useContext(EmployeeContext);
   const router = useRouter();
 
   const data = [
@@ -44,7 +48,7 @@ const AllPersonData = () => {
         {
           title: "Action",
           key: "action",
-          render: (_, record) => (
+          render: (_: any, record: any) => (
             <Space size="middle">
               <Button
                 onClick={() => {
@@ -86,7 +90,7 @@ const AllPersonData = () => {
         {
           title: "Action",
           key: "action",
-          render: (_, record) => (
+          render: (_: any, record: any) => (
             <Space size="middle">
               <Button
                 onClick={() => {
@@ -108,7 +112,6 @@ const AllPersonData = () => {
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
-        data={rowInfo}
         userData={rowInfo}
       />
       <>
